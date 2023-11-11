@@ -64,18 +64,23 @@ The particular training run took around 16 hours in total, with the earlier iter
 
 ### Win Rate
 After each iteration, the newly trained model plays against both the previous model and a simple MCTS model as a baseline.
+
 ![win_rate](doc/win_rate.png)
+
 The new model quickly surpasses the pure MCTS implementation, but starts to even out against the previous models in later stages of training.
 
 ### Loss
 We are optimizing against a moving target, as the training samples are updated with each iteration. Still, we can observe the loss trending down with each batch.
+
 ![loss](doc/loss.png)
 
 ### Sample Sizes
 We can see that the games get longer (we collect more samples in the same number of games) as our model trains:
+
 ![num_samples](doc/num_samples.png)
 
 Note that since we are using a sample queue, the number of samples used in training grows in each iteration, until the limit is reached:
+
 ![sample_queue](doc/sample_queue.png)
 
 _These graphs were generated in [this notebook](doc/analysis.ipynb)_
